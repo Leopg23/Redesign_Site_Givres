@@ -1,0 +1,730 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0 auto;
+  color: var(--couleure-texte);
+  font-family: "Fredoka", sans-serif;
+  font-weight: 400;
+  background: -moz-linear-gradient(90deg, #d5edfb 0%, #fefaee 100%);
+}
+
+img {
+  width: 100%;
+  
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  gap: 10px;
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+  color: var(--couleure-texte);
+  
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+header {
+  min-height: 150px;
+}
+
+#menu-bascule {
+  display: none;
+}
+
+#menu-bascule:checked ~ .menu-nav-mobile{
+  translate: 0;
+}
+
+.menu-icone {
+  position: absolute;
+  z-index: 3;
+  font-size: 4rem;
+}
+
+.barres{
+  height: 3px; 
+  width: 100%; 
+  background-color: black; 
+  border-radius: 10px; 
+}
+
+
+.menu-nav-mobile {
+  position: fixed;
+  top: 0;
+  translate: -120%;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all 0.3s ease;
+  background-color: white;
+  z-index: 2;
+}
+
+.menu-nav-mobile nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .menu-nav-mobile a {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 1rem;
+} */
+
+.menu-mobile-cremeries {
+  width: 120%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+
+}
+  
+.menu-nav-desktop {
+  display: none;
+}
+
+.OAD {
+  width: 100%;
+  max-width: 750px;
+  scale: 1.2;
+  display: grid;
+
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns:  1fr 1fr .75fr .75fr .75fr;  
+  grid-template-areas: 
+    " .         titre         titre   titre       titre     "
+
+    " original      original      img     img     img   " 
+
+    " authentique   authentique   img     img     img   "
+
+    " delicieux     delicieux     img     img     img   ";
+
+  gap: 5px;
+  margin-bottom: 100px;
+}
+
+.OAD-titre {
+  grid-area: titre;
+}
+
+.OAD-original {
+  align-self: flex-end;
+
+  display: flex;
+  justify-content: flex-end;
+  grid-area: original;
+
+ 
+}
+
+.OAD-original h3 {
+  font-weight: 700;
+}
+.OAD-original h3::first-letter {
+  color: var(--bleu-principale);
+  text-shadow: -1px 0 var(--couleure-texte), 0 1px var(--couleure-texte), 1px 0 var(--couleure-texte), 0 -1px var(--couleure-texte);
+}
+
+.OAD-authentique {
+  align-self: flex-end;
+
+  display: flex;
+  justify-content: flex-end;
+  grid-area: authentique;
+  margin-right: 15px;
+  font-weight: 700;
+}
+
+.OAD-authentique h3 {
+  font-weight: 700;
+}
+.OAD-authentique h3::first-letter {
+  color: var(--bleu-principale);
+  text-shadow: -1px 0 var(--couleure-texte), 0 1px var(--couleure-texte), 1px 0 var(--couleure-texte), 0 -1px var(--couleure-texte);
+}
+
+.OAD-delicieux {
+  align-self: flex-end;
+
+  display: flex;
+  justify-content: flex-end;
+  grid-area: delicieux;
+
+  font-weight: 700;
+}
+
+.OAD-delicieux h3 {
+  font-weight: 700;
+}
+.OAD-delicieux h3::first-letter {
+  color: var(--bleu-principale);
+  text-shadow: -1px 0 var(--couleure-texte), 0 1px var(--couleure-texte), 1px 0 var(--couleure-texte), 0 -1px var(--couleure-texte);
+}
+
+.sandwich-glacee-img {
+  position: relative;
+  top: 8%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  grid-area: img;
+  width: calc( clamp(200px, 50%, 300px) * 0.8);
+  height: calc( clamp(200px, 50%, 300px) * 0.8);
+  border-radius: 50%;
+
+ box-shadow: 0 0 10px rgba(0, 0, 0, 123123);
+}
+
+.sandwich-glacee-img::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+
+  background-image: url('data:image/svg+xml,<svg width="551" height="548" viewBox="0 0 551 548" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M275.5 8.97809L306.596 43.5915L309.9 47.27L314.142 44.729L354.059 20.8189L373.57 63.0602L375.644 67.5492L380.446 66.3715L425.637 55.2893L431.831 101.405L432.489 106.306L437.426 106.596L483.875 109.326L476.201 155.219L475.386 160.096L480.017 161.828L523.598 178.129L502.738 219.72L500.521 224.14L504.436 227.161L541.277 255.583L509.084 289.178L505.663 292.748L508.513 296.789L535.34 334.807L494.675 357.42L490.353 359.824L491.886 364.525L506.315 408.761L460.791 418.384L455.953 419.406L456.032 424.351L456.781 470.874L410.443 466.651L405.519 466.202L404.137 470.95L391.14 515.628L348.105 497.934L343.532 496.054L340.812 500.184L315.223 539.045L279.316 509.453L275.5 506.308L271.684 509.453L235.777 539.045L210.188 500.184L207.468 496.054L202.895 497.934L159.86 515.628L146.863 470.95L145.481 466.202L140.557 466.651L94.2191 470.874L94.9675 424.351L95.0471 419.406L90.2092 418.384L44.6853 408.761L59.1136 364.525L60.6469 359.824L56.3254 357.42L15.6604 334.807L42.4865 296.789L45.3374 292.748L41.9162 289.178L9.72334 255.583L46.5638 227.161L50.4789 224.14L48.262 219.72L27.4018 178.129L70.983 161.828L75.6144 160.096L74.7989 155.219L67.1248 109.326L113.574 106.596L118.511 106.306L119.169 101.405L125.363 55.2893L170.554 66.3715L175.356 67.5492L177.43 63.0602L196.941 20.8189L236.858 44.729L241.1 47.27L244.404 43.5915L275.5 8.97809Z" fill="%23B9E1F9" stroke="%23450126" stroke-width="12"/></svg>');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+
+  
+}
+
+.sandwich-glacee-img img {
+  z-index: 1;
+}
+
+.produit-semaine {
+  max-width: 65vw;
+  align-self: flex-start;
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+
+  margin: clamp(3rem, 15%, 6rem) 5px 5px 5px;
+  border-radius: calc(clamp(2rem, 5%, 3rem));
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: .4rem solid var(--couleure-texte);
+  background-color: #fffef9;
+}
+
+
+.creme-de-la-semaine{
+  width: 75%;
+}
+
+.carte-titre{
+  justify-self: flex-start;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 1rem;
+}
+
+.carte-titre h1{
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.carte-titre h3{
+  font-size: 1.5rem;
+}
+
+.carte-info-produit{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin-bottom: 1rem;
+}
+
+.carte-info-produit h1{
+  font-size: 3rem;
+  font-weight: 700;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.carte-info-produit h1::first-letter {
+  color: var(--bleu-principale);
+  text-shadow: -1px 0 var(--couleure-texte), 0 1px var(--couleure-texte), 1px 0 var(--couleure-texte), 0 -1px var(--couleure-texte);
+}
+
+.carte-info-produit h3{
+  font-size: 2rem;
+}
+
+.conteneur-produits {
+  margin-top: 3rem;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template: 3rem 1fr / 1fr 3px 1fr;
+  justify-items: center;
+}
+
+.produit{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.produit div {
+  margin-top: 1rem;
+  max-width: 100px;
+}
+.conteneur-produits .creme-dures-titre{
+  grid-area: 1/1/2/3;
+}
+
+.conteneur-produits .cremes-dures{
+  overflow-x: scroll;
+  grid-area:2/1/3/3 ;
+}
+
+.conteneur-produits .barre-millieux {
+  width: 100%;
+  background-color: var(--couleure-texte);
+  grid-area: 2/2/4/2;
+}
+
+.conteneur-produits .delices-givres-titre{
+  grid-area: 1/3/2/4;
+}
+
+.conteneur-produits .delices-givres{
+  overflow-x: scroll;
+  grid-area: 2/3/3/4;
+}
+
+.footer-desktop{
+  display: none;
+}
+
+.footer-desktop-separateur{
+  display: none;
+}
+
+footer {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.barre-horizontale-1 {
+  width: 40%;
+  min-height: 3px;
+  background-color: var(--couleure-texte);
+}
+
+.barre-horizontale-2 {
+  width: 30%;
+  min-height: 3px;
+  background-color: var(--couleure-texte);
+}
+
+.footer-logos{
+  width: 100%;
+  height: 125px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+}
+
+.resaux-sociaux {
+  display: flex;
+  max-height: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.resaux-sociaux img {
+  width: 50px;
+}
+
+.logo-givres {
+  width: 100px;
+}
+/* ----------------------------------- MEDIA QUERIES ----------------------------------- */
+
+/* MQ POUR LES TABLETTES */
+@media screen and (min-width: 768px) {
+  
+
+  .menu-nav-mobile {
+    display: none;
+  }
+
+  .menu-icone {
+    display: none;
+  }
+  
+  .menu-nav-desktop {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .menu-desktop-logo {
+    width: 100px;
+  }
+
+  .menu-nav-desktop nav {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+  }
+
+ 
+  .panier{
+    width: 50px;
+  }
+
+  .OAD{
+    margin-top: 0;
+    /* scale: 1.5; */
+    gap: 20px;
+
+    grid-template-areas: 
+    " .            titre         titre   titre   titre     "
+
+    " original      original      img     img     img   " 
+
+    " .             authentique   img     img     img   "
+
+    " delicieux     delicieux     img     img     img   ";
+    
+    translate: 25%;
+  }
+
+
+
+
+  .sandwich-glacee-img {
+   transition: box-shadow 0.3s ease;
+  }
+
+  .sandwich-glacee-img:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 1);
+  }
+
+  .sandwich-glacee-img:hover::before {
+    animation: animationEtoile 10s linear infinite;
+  }
+
+  .produit-semaine {
+    position: absolute;
+    max-width: 35vw;
+    border: .7rem solid var(--couleure-texte);
+    transition: box-shadow 0.3s ease, scale 0.3s ease;
+  }
+  .produit-semaine:hover {
+    scale: 1.01;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 1);
+  }
+
+
+
+
+  .conteneur-produits{
+    translate: 25%;
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+    grid-template: 1.75rem 1fr 50px 1.75rem 1fr/ 1fr 1fr;
+  }
+
+  .produit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 0 auto;
+    width: 100px;
+    margin: 18px;
+    translate: 88%;
+  }
+
+  .conteneur-produits .creme-dures-titre{
+    grid-area:1/1/2/2 ;
+  }
+  
+  .conteneur-produits .cremes-dures{
+    grid-area: 2/1/2/3;
+    display: flex;
+  }
+  
+  .conteneur-produits .barre-millieux {
+    display: none;
+  }
+  
+  .conteneur-produits .delices-givres-titre{
+    grid-area: 4/1/5/2;
+  }
+  
+  .conteneur-produits .delices-givres{
+    display: flex;
+    grid-area:5/1/6/3 ;
+    align-self: flex-end;
+  }
+
+  .footer-mobile{
+      display: none;
+    
+  }
+
+  .footer-desktop-separateur{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+  }
+
+  .footer-desktop-separateur div{
+    width: 75%;
+    height: 3px;
+    background-color: #45012677;
+  }
+  .footer-desktop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+
+  .footer-desktop-cremerie div{
+    width: 150px;
+  }
+
+  .footer-desktop-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .footer-desktop-logos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .barre-item{
+    height: 3px;
+    width: 80%;
+    background-color: var(--couleure-texte);
+  }
+} 
+ 
+/* MQ POUR LES LAPTOPS */
+@media screen and (min-width: 992px) {
+      
+  a {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 400;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .OAD{
+    margin-top: 75px;
+    scale: 1.5;
+    gap: 20px;
+
+    grid-template-areas: 
+    " titre            titre         titre   titre   titre     "
+
+    " original      original      img     img     img   " 
+
+    " .             authentique   img     img     img   "
+
+    " delicieux     delicieux     img     img     img   ";
+    
+    translate: 25%;
+  }
+
+
+
+
+  .sandwich-glacee-img {
+   transition: box-shadow 0.3s ease;
+  }
+
+  .sandwich-glacee-img:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 1);
+  }
+
+  .sandwich-glacee-img:hover::before {
+    animation: animationEtoile 10s linear infinite;
+  }
+
+  .conteneur-produits{
+    translate: 0;
+    margin-top: 200px;
+    width: auto;
+    height: auto;
+    grid-template: 1.75rem 1fr 50px 1.75rem 1fr/ 1fr 1fr;
+  }
+
+  .conteneur-produits{
+    translate: 20%;
+  }
+
+  .footer-mobile{
+    display: none;
+    
+  }
+
+  
+
+  .footer-desktop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+
+  .footer-desktop-cremerie div{
+    width: 150px;
+  }
+
+  .footer-desktop-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .footer-desktop-logos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .barre-item{
+    height: 3px;
+    width: 80%;
+    background-color: var(--couleure-texte);
+  }
+}
+
+/* MQ POUR LES ECRANS PLUS GRANDS */
+@media screen and (min-width: 1200px) {
+  .OAD{
+    margin-top: 125px;
+    scale: 1.5;
+    translate: 0;
+  }
+
+  .produit-semaine {
+    translate: 20%;
+    
+  }
+
+  .conteneur-produits{
+    scale: 1.2;
+    translate: 0%;
+  }
+
+  .conteneur-produits .creme-dures {
+    overflow: auto;
+  }
+
+  .conteneur-produits .delices-givres {
+    overflow: auto;
+  }
+
+  .footer-desktop-separateur{
+    margin-top: 135px;
+  }
+}
